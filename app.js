@@ -113,5 +113,41 @@ Store.prototype.render = function() {
     trElement.appendChild
   }
   tdElement = document.createElement('td')
-  this.sumValue() 
+  this.valueSum();
+  tdElement.textContent = this.totalDailyCookies;
+  trElement.appendChild(tdElement)
+  Table.appendChild(tdElement)
 }
+Store.prototype.valueSum = function (){
+
+  for(var i = 0; i < storeHours.length; i++){
+    this.totalDailyCookies += this.storeCookiePerHour[i]
+  }
+}
+
+function makingHeader(){
+  var trElement = document.createElement('tr');
+  var emptyTh = document.createElement('th');
+  thElement = document.createElement('th')
+
+  trElement.appendChild(emptyTh)
+  for(var i = 0; i < storeHours.length; i++){
+    var thElement = document.createElement('th')
+    thElement.textContent = storeHours[i];
+    trElement.appendChild(thElement);
+  }
+
+  var totalDailyCookies = document.createElement('th');
+  totalDailyCookies.textContent = 'Total'
+  trElement.appendChild(totalDailyCookiesElemntElement)
+  Table.appendChild(trElement);
+}
+
+function renderAllStores(){
+  for (var i = 0; i < cookieSales.length; i++){
+    cookieSales[i].render()
+  }
+}
+
+makingHeader();
+renderAllStores();
