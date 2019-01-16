@@ -74,9 +74,44 @@ function Store(store, minCust, maxCust, avgCookie) {
   this.maxCust = maxCust,
   this.avgCookie = avgCookie,
   this.storeCookiePerHour = [];
+  this.custPerHour = [];
   this.totalDailyCookies = 0;
   cookieSales.push(this)
 }
 
+Store.prototype.numbers = function(){
+  for(var i = 0 ; i < storeHours.length; i++){
+    this.storeCookiePerHour.push(Math.floor(Math.random() * (this.max - this.min)) + this.min);
+    }
+}
 
+Store.prototype.custPerHour = function() {
+  for(var i = 0 ; i < time.length ; i++ ){
+    this.custPerHour.push(Math.floor((this.avgCookie * this.custPerHour[i])))
+  }
+}
 
+for(var i = 0; i < cookieSales.length; i++){
+  cookieSales[i].numbers();
+  cookieSales[i].storeCookiePerHour();
+}
+
+Store.prototype.render = function()   {
+  cookieSales[i].storeCookiePerHour();
+  cookieSales[i].numbers();
+}
+
+Store.prototype.render = function() {
+  var trElement = document.createElement('tr')
+  var tdElement = document.createElement('td')
+  tdElement.textContent = this.storeName;
+  trElement.appendChild(trElement);
+
+  for(var i = 0 ; i < storeHours.length; i++) {
+    var tdElement = document.createElement('td')
+    tdElement.textContent = this.storeCookiePerHour[i];
+    trElement.appendChild
+  }
+  tdElement = document.createElement('td')
+  this.sumValue() 
+}
