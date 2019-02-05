@@ -102,3 +102,26 @@ var totalTH = document.createElement('th');
     stores[j].renderRow(tableData);
   }
   renderTableFoot();
+
+  var renderTableFoot = function() {
+    var tableData = document.getElementById ('store_data');
+    var hourTotalTFoot = document.createElement('tfoot');
+    tableData.appendChild(hourTotalTFoot);
+  
+    var hourTotalTRow = document.createElement('tr');
+    hourTotalTFoot.appendChild(hourTotalTRow);
+
+    userForm.addEventListener('submit', submitHandler);
+
+function submitHandler(event) {
+  event.preventDefault();
+  var  = event.target.store_title.value;
+  var minCust = parseInt(event.target.min_customers.value);
+  var maxCust = parseInt(event.target.max_customers.value);
+  var avgCookie = parseInt(event.target.avg_cookies_per.value);
+
+  event.target.store_title.value = '';
+  event.target.min_customers.value = '';
+  event.target.max_customers.value = '';
+  event.target.avg_cookies_per.value = '';
+
