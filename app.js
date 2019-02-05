@@ -1,62 +1,3 @@
-// 'use strict';
-
-// var tanner = {
-//   course: '201d44',
-//   enrolled: true,
-//   instructors: 'Sam',
-//   first: 'Tanner',
-//   lastName: 'Percival',
-//   preferredName: 'Tan-Man',
-//   homeTown: 'Tacoma',
-//   introduction: function () {
-//     return 'Hi, my name is ' + this.firstName + ' ' + this.lastName + ', but you can call me ' + this.preferredName + '. I am from ' + this.homeTown + '.';
-//   }
-// };
-
-// We would need 228 lines of code to model the entire class in objects
-
-// Constructor function syntax
-
-// function ConstructorFunctionName (parameter1, parameter2) {
-//   this.property = parameter1;
-//   this.property2 = parameter2;
-//   this.staticProperty1 = 'ExampleString';
-//   this.method1 = function () {
-//     console.log('do stuff');
-//   };
-// }
-
-//====================
-// Student Constructor
-//====================
-
-// var allStudents = [];
-
-// function Student(firstName, lastName, preferredName, homeTown) {
-//   this.course = '201d44';
-//   this.enrolled = true;
-//   this.instructor = 'Sam';
-//   this.firstName = firstName;
-//   this.lastName = lastName;
-//   this.preferredName = preferredName;
-//   this.homeTown = homeTown;
-//   allStudents.push(this);
-// }
-
-// Student.prototype.introduction = function () {
-//   return 'Hi, my name is ' + this.firstName + ' ' + this.lastName + ', but you can call me ' + this.preferredName + '. I am from ' + this.homeTown + '.';
-// };
-
-// Constructor = 12
-// Each instance = 1 * 19
-// Total lines to model the entire class: 31
-
-//==========================
-//Student Prototype Property
-//==========================
-
-// new Student instances
-
 'use strict'
 var cookieSales
 var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
@@ -75,8 +16,8 @@ function Store(store, minCust, maxCust, avgCookie) {
   this.avgCookie = avgCookie
   this.storeCookiePerHour = [];
   this.custPerHour = [];
-  this.totalDailyCookies = 0
-  cookieSales.push(this)
+  this.totalDailyCookies = 0;
+  this.storeCookiePerHour.push(this);
 }
 
 Store.prototype.numbers = function(){
@@ -91,14 +32,14 @@ Store.prototype.custPerHour = function() {
   }
 }
 
-for(var i = 0; i < cookieSales.length; i++){
-  cookieSales[i].numbers();
-  cookieSales[i].storeCookiePerHour();
+for(var i = 0; i < storeCookiePerHour.length; i++){
+  storeCookiePerHour[i].numbers();
+  storeCookiePerHour[i].storeCookiePerHour();
 }
 
 Store.prototype.render = function()   {
-  cookieSales[i].storeCookiePerHour();
-  cookieSales[i].numbers();
+  storeCookiePerHour[i].storeCookiePerHour();
+  storeCookiePerHour[i].numbers();
 }
 
 Store.prototype.render = function() {
@@ -144,8 +85,8 @@ function makingHeader(){
 }
 
 function renderAllStores(){
-  for (var i = 0; i < cookieSales.length; i++){
-    cookieSales[i].render()
+  for (var i = 0; i < storeCookiePerHour.length; i++){
+    storeCookiePerHour[i].render()
   }
 }
 
