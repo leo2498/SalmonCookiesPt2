@@ -92,3 +92,13 @@ function renderAllStores(){
 
 makingHeader();
 renderAllStores();
+
+var totalTH = document.createElement('th');
+  totalTH.textContent = 'Daily Location Total';
+  newTR.appendChild(totalTH);
+
+  //rendering and populating each store row
+  for(var j = 0; j < stores.length; j++) {
+    stores[j].renderRow(tableData);
+  }
+  renderTableFoot();
